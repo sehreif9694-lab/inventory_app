@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>入庫</title>
+</head>
+<body>
+    <h1>入庫フォーム</h1>
+
+    <form action="{{ url_for('stock_in') }}" method="post">
+        <label>商品：</label>
+        <select name="product_id" required>
+            {% for product in products %}
+            <option value="{{ product['product_id'] }}">
+                {{ product['item_name'] }}
+            </option>
+            {% endfor %}
+        </select>
+        <br><br>
+
+        <label>入庫数量：</label>
+        <input type="number" name="quantity" min="1" required>
+        <br><br>
+
+        <button type="submit">入庫する</button>
+    </form>
+
+    <br>
+    <a href="{{ url_for('inventory') }}">在庫一覧に戻る</a>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>入庫</title>
+</head>
+<body>
+    <h1>入庫フォーム</h1>
+
+    <form action="{{ url_for('stock_in') }}" method="post">
+        <label>商品：</label>
+        <select name="product_id" required>
+            {% for product in products %}
+                <option value="{{ product['product_id'] }}">
+                    {{ product['item_name'] }}
+                </option>
+            {% endfor %}
+        </select>
+
+        <br><br>
+
+        <label>入庫数量：</label>
+        <input type="number" name="quantity" min="1" required>
+
+        <br><br>
+
+        <button type="submit">入庫する</button>
+    </form>
+
+    <br>
+    <a href="{{ url_for('inventory') }}">在庫一覧に戻る</a>
+</body>
+</html>
+
+

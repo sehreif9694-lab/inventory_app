@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8" />
+    <title>在庫一覧</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: 20px auto;
+        }
+        th, td {
+            border: 1px solid #333;
+            padding: 8px 12px;
+            text-align: center;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align:center;">在庫一覧</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>商品ID</th>
+                <th>区分</th>
+                <th>品目名</th>
+                <th>在庫数</th>
+                <th>最低在庫数</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in products %}
+            <tr>
+                <td>{{ product['product_id'] }}</td>
+                <td>{{ product['category'] }}</td>
+                <td>{{ product['item_name'] }}</td>
+                <td>{{ product['stock_quantity'] }}</td>
+                <td>{{ product['min_stock_quantity'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
+
+   
+
+
+
